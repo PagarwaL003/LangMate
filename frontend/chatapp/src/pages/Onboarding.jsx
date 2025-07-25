@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useauthUser from "../hooks/useauthUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { LANGUAGES } from "../constants/index.js";
+
 import {
   CameraIcon,
   LoaderIcon,
@@ -9,6 +11,7 @@ import {
   ShipWheelIcon,
   ShuffleIcon,
 } from "lucide-react";
+import { completeOnboarding } from "../lib/api";
 
 const Onboarding = () => {
   const { authUser } = useauthUser();

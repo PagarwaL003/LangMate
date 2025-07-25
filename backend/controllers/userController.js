@@ -150,7 +150,7 @@ export async function getFriendRequests(req, res) {
       status: "accepted",
     }).populate("recipient", "fullName profilePic");
 
-    res.status(20).json(incomingRequests, acceptedRequests);
+    res.status(200).json({ incomingRequests, acceptedRequests });
   } catch (error) {
     console.error("Error in getting pending friend requests: ", error);
     res.status(500).json({

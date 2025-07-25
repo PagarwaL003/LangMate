@@ -53,14 +53,14 @@ const Home = () => {
       });
       setOutgoingRequestIds(outgoingIds);
     }
-  }, outgoingFriendReqs);
+  }, [outgoingFriendReqs]);
 
   return (
     <div className="gap-6 sm:p-6 lg:p-8">
       <div className="container mx-auto space-y-10">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Your Friends
+            Your Mates
           </h2>
           <Link to="/notifications" className="btn btn-outline btn-sm">
             <UsersIcon className="mr-2 size-4" />

@@ -11,10 +11,10 @@ const Friends = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container px-4 py-8 mx-auto">
       <div className="flex items-center gap-3 mb-8">
         <UsersIcon className="size-7 text-primary" />
-        <h1 className="text-3xl font-bold tracking-tight">Your Friends</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Your Mates</h1>
       </div>
 
       {isLoading ? (

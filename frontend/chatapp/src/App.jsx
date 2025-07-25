@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router";
 import Home from "./pages/Home.jsx";
 import Friends from "./pages/Friends.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import Chatting from "./pages/Chat.jsx";
@@ -110,6 +111,18 @@ const App = () => {
               )
             ) : (
               <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/edit-profile"
+          element={
+            isAuthenticated && isOnboarded ? (
+              <Layout showSidebar={true}>
+                <EditProfile />
+              </Layout>
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
           }
         />

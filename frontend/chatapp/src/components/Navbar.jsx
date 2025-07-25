@@ -21,7 +21,6 @@ const Navbar = () => {
     <nav className="sticky top-0 z-30 flex items-center h-16 border-b bg-base-200 border-base-300">
       <div className="container mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-end w-full">
-        
           {/* LOGO -- Only in chat page */}
 
           {isChatPage && (
@@ -35,10 +34,16 @@ const Navbar = () => {
             </div>
           )}
 
+
           <div className="flex gap-3 ml-auto item-center sm:gap-4">
             <Link to="/notifications">
-              <button className="btn btn-ghost btn-circle">
+              <button className="relative btn btn-ghost btn-circle">
                 <BellIcon className="w-6 h-6 text-base-content opacity-70" />
+                {authUser?.friendRequests?.length > 0 && (
+                  <span className="absolute top-0 right-0 flex items-center justify-center w-5 h-5 -mt-1 -mr-1 text-xs font-bold text-white rounded-full bg-error">
+                    {authUser.friendRequests.length}
+                  </span>
+                )}
               </button>
             </Link>
           </div>
@@ -46,21 +51,20 @@ const Navbar = () => {
           <ThemeSelector />
 
           <div className="avatar">
-            <div className="rounded-full w-9">
-              <img
-                src={authUser?.profilePic}
-                alt="User Avatar"
-                rel="noreferrer"
-              />
-            </div>
+            <Link to="/edit-profile">
+              <div className="rounded-full w-9">
+                <img
+                  src={authUser?.profilePic}
+                  alt="User Avatar"
+                  rel="noreferrer"
+                />
+              </div>
+            </Link>
           </div>
 
           {/* Logout Button */}
-          <button
-            className="btn btn-ghost btn-circle"
-            onClick={logoutMutation}
-          >
-            <LogOutIcon className="w-6 h-6 text-base-content opacity-70"/>
+          <button className="btn btn-ghost btn-circle" onClick={logoutMutation}>
+            <LogOutIcon className="w-6 h-6 text-base-content opacity-70" />
           </button>
         </div>
       </div>

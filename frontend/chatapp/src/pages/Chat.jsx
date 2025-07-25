@@ -34,13 +34,20 @@ const Chatting = () => {
   });
 
   useEffect(() => {
+    let isMounted = true;
+    let client;
     const initChat = async () => {
       if (!tokenData?.token || !authUser) return;
 
       try {
         console.log("Initializing stream chat client...");
 
-        const client = StreamChat.getInstance(STREAM_API_KEY);
+        client = StreamChat.getInstance(STREAM_API_KEY);
+
+        // Disconnect previous user if already connected
+        if (client.userID) {
+          await client.disconnectUser();
+        }
 
         await client.connectUser(
           {
@@ -59,16 +66,24 @@ const Chatting = () => {
         });
 
         await currChannel.watch();
-        setChatClient(client);
-        setChannel(currChannel);
+        if (isMounted) {
+          setChatClient(client);
+          setChannel(currChannel);
+        }
       } catch (error) {
         console.error("Error initializing chat: ", error);
         toast.error("Could not connect to chat. Please try again.");
       } finally {
-        setLoding(false);
+        if (isMounted) setLoding(false);
       }
     };
     initChat();
+    return () => {
+      isMounted = false;
+      if (client) {
+        client.disconnectUser?.();
+      }
+    };
   }, [tokenData , authUser , targetUserId]);
 
   const handleVideoCall = () => {

@@ -7,6 +7,7 @@ import {
   UserCheckIcon,
 } from "lucide-react";
 import NoNotificationsFound from "../components/NoNotificationsFound";
+import toast from "react-hot-toast";
 
 
 const Notification = () => {
@@ -21,11 +22,12 @@ const Notification = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["friendRequests"] });
       queryClient.invalidateQueries({ queryKey: ["friends"] });
+      toast.success("Friend request accepted!");
     },
   });
 
-  const incomingRequests = friendRequests?.incomingReqs || [];
-  const acceptedRequests = friendRequests?.acceptedReqs || [];
+  const incomingRequests = friendRequests?.incomingRequests || [];
+  const acceptedRequests = friendRequests?.acceptedRequests || [];
   return (
     <div className="p-4 sm:p-6 lg:p-8">
       <div className="container max-w-4xl mx-auto space-y-8">

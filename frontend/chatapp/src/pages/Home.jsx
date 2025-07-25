@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useThemeStore } from "../store/useThemeStore";
+import { toast } from "react-hot-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import NoFriendsFound from "../components/NoFriendsFound.jsx";
 import { Link } from "react-router";
@@ -30,7 +31,7 @@ const Home = () => {
   });
 
   const { data: recommendedUsers = [], isLoading: loadingUsers } = useQuery({
-    queryKey: ["friends"],
+    queryKey: ["users"],
     queryFn: getRecommendedUsers,
   });
 
@@ -41,15 +42,22 @@ const Home = () => {
 
   const { mutate: sendRequestMutation, isPending } = useMutation({
     mutationFn: sendFriendRequest,
-    onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] });
+    },
+    onError: (error) => {
+      const message = error?.response?.data?.message || "Failed to send friend request.";
+      toast.error(message);
+    },
   });
 
   useEffect(() => {
     const outgoingIds = new Set();
     if (outgoingFriendReqs && outgoingFriendReqs.length > 0) {
       outgoingFriendReqs.forEach((req) => {
-        outgoingIds.add(req.recipient._id);
+        if (req.recipient && req.recipient._id) {
+          outgoingIds.add(req.recipient._id);
+        }
       });
       setOutgoingRequestIds(outgoingIds);
     }
@@ -111,7 +119,7 @@ const Home = () => {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
               {recommendedUsers.map((user) => {
                 const hasRequestBeenSent = outgoingRequestIds.has(user._id);
 

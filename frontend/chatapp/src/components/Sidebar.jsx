@@ -13,7 +13,7 @@ const Sidebar = () => {
         <Link to="/" className="flex items-center gap-2.5">
           <ShipWheelIcon className="size-9 text-primary" />
           <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Streamify
+            LangMate
           </span>
         </Link>
       </div>
@@ -61,9 +61,8 @@ const Sidebar = () => {
           <div className="flex-1">
             <p className="text-sm font-semibold">{authUser?.fullName}</p>
             <p className="flex items-center gap-1 text-xs text-success">
-              <span className="inline-block rounded-full size-2 bg-success">
+              <span className="inline-block rounded-full size-2 bg-success"/>
                 Online
-              </span>
             </p>
           </div>
         </div>

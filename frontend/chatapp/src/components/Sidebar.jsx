@@ -18,7 +18,7 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      <nav className="flex-1 p-4 space-y-1">
+      <nav className="flex-1 p-5 space-y-4">
         <Link
           to="/"
           className={`justify-start w-full gap-3 px-3 normal-case btn btn-ghost ${
@@ -66,6 +66,12 @@ const Sidebar = () => {
             </p>
           </div>
         </div>
+        <Link
+          to="/edit-profile"
+          className="w-full mt-3 btn btn-sm btn-outline btn-primary"
+        >
+          Edit Profile
+        </Link>
       </div>
     </aside>
   );

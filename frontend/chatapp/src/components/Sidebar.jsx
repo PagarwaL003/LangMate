@@ -40,7 +40,7 @@ const Sidebar = () => {
         </Link>
 
         <Link
-          to="/"
+          to="/notifications"
           className={`justify-start w-full gap-3 px-3 normal-case btn btn-ghost ${
             currentPath === "/notifications" ? "btn-active" : ""
           }`}

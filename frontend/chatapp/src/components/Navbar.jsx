@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { logout } from "../lib/api";
 import { BellIcon, LogOutIcon, ShipWheelIcon } from "lucide-react";
 import ThemeSelector from "./ThemeSelector.jsx";
+
 const Navbar = () => {
   const { authUser } = useauthUser();
   const location = useLocation();
@@ -18,8 +19,9 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-30 flex items-center h-16 border-b bg-base-200 border-base-300">
-      <div className="container mx-auto sm_px-6 lg:px-8">
+      <div className="container mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-end w-full">
+        
           {/* LOGO -- Only in chat page */}
 
           {isChatPage && (
@@ -27,15 +29,15 @@ const Navbar = () => {
               <Link to="/" className="flex items-center gap-2.5">
                 <ShipWheelIcon className="size-9 text-primary" />
                 <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                  Streamify
+                  LangMate
                 </span>
               </Link>
             </div>
           )}
 
-          <div className="flex items-center gap-3 ml-auto sm:gap-4">
+          <div className="flex gap-3 ml-auto item-center sm:gap-4">
             <Link to="/notifications">
-              <button className="btn-ghost btn-circle">
+              <button className="btn btn-ghost btn-circle">
                 <BellIcon className="w-6 h-6 text-base-content opacity-70" />
               </button>
             </Link>

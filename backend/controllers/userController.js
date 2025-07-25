@@ -1,7 +1,7 @@
 import FriendRequest from "../models/friendRequest.js";
 import User from "../models/user.js";
 
-export async function getRecommendatedUsers(req, res) {
+export async function getRecommendedUsers(req, res) {
   try {
     const currentUserId = req.user.id;
     const currentUser = req.user;
@@ -13,7 +13,7 @@ export async function getRecommendatedUsers(req, res) {
         { isOnboarded: true },
       ],
     });
-
+    console.log(recommendedUsers);
     res.status(200).json(recommendedUsers);
   } catch (error) {
     console.error("Error fetching recommended users: ", error);
@@ -29,7 +29,7 @@ export async function getFriends(req, res) {
       .select("friends")
       .populate(
         "friends",
-        "fullName profilePic, nativeLanguage, learningLanguage"
+        "fullName profilePic nativeLanguage learningLanguage location bio"
       );
     res.status(200).json(user.friends);
   } catch (error) {
@@ -52,8 +52,8 @@ export async function sendFriendRequest(req, res) {
       });
     }
 
-    const recipient = User.findById(recipientId);
 
+    const recipient = await User.findById(recipientId);
     if (!recipient) {
       return res.status(404).json({
         message: "Recipient not found",

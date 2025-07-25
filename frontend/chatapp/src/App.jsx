@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router";
 import Home from "./pages/Home.jsx";
+import Friends from "./pages/Friends.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import Chatting from "./pages/Chat.jsx";
@@ -26,6 +27,18 @@ const App = () => {
   return (
     <div className="h-screen" data-theme={theme}>
       <Routes>
+        <Route
+          path="/friends"
+          element={
+            isAuthenticated && isOnboarded ? (
+              <Layout showSidebar={true}>
+                <Friends />
+              </Layout>
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+          }
+        />
         <Route
           path="/"
           element={

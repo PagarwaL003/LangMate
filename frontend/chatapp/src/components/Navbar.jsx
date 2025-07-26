@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router";
 import useauthUser from "../hooks/useauthUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { logout } from "../lib/api";
-import { BellIcon, LogOutIcon, ShipWheelIcon } from "lucide-react";
+import { BellIcon, Globe, LogOutIcon, ShipWheelIcon } from "lucide-react";
 import ThemeSelector from "./ThemeSelector.jsx";
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
           {isChatPage && (
             <div className="pl-5">
               <Link to="/" className="flex items-center gap-2.5">
-                <ShipWheelIcon className="size-9 text-primary" />
+                  <Globe className="size-9 text-primary"  />
                 <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                   LangMate
                 </span>

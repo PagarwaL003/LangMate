@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { ShipWheelIcon } from "lucide-react";
+import { Globe, ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
 import useLogin from "../hooks/useLogin";
 
@@ -28,7 +28,7 @@ const Login = () => {
         <div className="flex flex-col w-full p-4 lg:w-1/2 sm:p-8">
           {/* Logo */}
           <div className="flex items-center justify-start gap-2 mb-4">
-            <ShipWheelIcon className="size-9 text-primary" />
+            <Globe className="size-9 text-primary"  />
             <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               LangMate
             </span>
@@ -37,7 +37,9 @@ const Login = () => {
           {/* error message if any*/}
           {error && (
             <div className="mb-4 alert alert-error">
-              <span>{error.response.data.message}</span>
+              <span>
+                {error?.response?.data?.message || error.message || "Login failed. Please try again."}
+              </span>
             </div>
           )}
 

@@ -1,6 +1,6 @@
 import useauthUser from "../hooks/useauthUser";
 import { Link, useLocation } from "react-router";
-import { BellIcon, HomeIcon, ShipWheelIcon, UserIcon } from "lucide-react";
+import { BellIcon, Globe, HomeIcon, ShipWheelIcon, UserIcon } from "lucide-react";
 
 const Sidebar = () => {
   const { authUser } = useauthUser();
@@ -11,7 +11,7 @@ const Sidebar = () => {
     <aside className="sticky top-0 flex-col hidden w-64 h-screen border-r bg-base-200 border-base-300 lg:flex">
       <div className="p-5 border-b border-base-300">
         <Link to="/" className="flex items-center gap-2.5">
-          <ShipWheelIcon className="size-9 text-primary" />
+          <Globe className="size-9 text-primary" />
           <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
             LangMate
           </span>

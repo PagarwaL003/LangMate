@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { ShipWheelIcon } from "lucide-react";
+import { Globe, ShipWheelIcon } from "lucide-react";
 import useSignup from "../hooks/useSignup.js";
 const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
@@ -28,7 +28,7 @@ const SignUp = () => {
         
           {/* logo */}
           <div className="flex items-center justify-start gap-2 mb-4">
-            <ShipWheelIcon className="size-9 text-primary" />
+            <Globe className="size-9 text-primary"  />
             <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               LangMate
             </span>

@@ -10,10 +10,16 @@ import { connectDB } from "./config/db.js";
 
 const app = express();
 const allowedOrigin = process.env.FRONTEND_URL || "http://localhost:5173";
+
 app.use(
   cors({
-    origin: allowedOrigin,
-    credentials: true, //allow frontend to send cookies
+    origin: (origin, callback) => {
+      // allow requests with no origin (like mobile apps, curl, etc.)
+      if (!origin) return callback(null, true);
+      if (allowedOrigin.includes(origin)) return callback(null, true);
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
   })
 );
 app.use(express.json());

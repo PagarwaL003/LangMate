@@ -25,15 +25,16 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/chat", chatRoutes);
 
 app.get("/", (req, res) => {
-  console.log("Hello World");
+  res.send("Hello World");
 });
 
 connectDB();
-if (require.main === module) {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-}
 
-module.exports = app;
+// if (require.main === module) {
+//   const PORT = process.env.PORT || 3000;
+//   app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+//   });
+// }
+
+export default app;

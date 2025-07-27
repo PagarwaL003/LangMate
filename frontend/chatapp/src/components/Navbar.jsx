@@ -14,7 +14,10 @@ const Navbar = () => {
 
   const { mutate: logoutMutation } = useMutation({
     mutationFn: logout,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+      toast.success("Logged out successfully!");
+    },
   });
 
   return (
@@ -26,14 +29,13 @@ const Navbar = () => {
           {isChatPage && (
             <div className="pl-5">
               <Link to="/" className="flex items-center gap-2.5">
-                  <Globe className="size-9 text-primary"  />
+                <Globe className="size-9 text-primary" />
                 <span className="font-mono text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                   LangMate
                 </span>
               </Link>
             </div>
           )}
-
 
           <div className="flex gap-3 ml-auto item-center sm:gap-4">
             <Link to="/notifications">

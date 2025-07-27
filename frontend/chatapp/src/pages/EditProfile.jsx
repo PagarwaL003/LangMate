@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useAuthUser from "../hooks/useAuthUser";
+import useAuthUser from "../hooks/useAuthUser.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { LANGUAGES } from "../constants/index.js";

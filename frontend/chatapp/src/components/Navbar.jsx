@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import useAuthUser from "../hooks/useauthUser";
+import useAuthUser from "../hooks/useAuthUser.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { logout } from "../lib/api";
 import { BellIcon, Globe, LogOutIcon, ShipWheelIcon } from "lucide-react";

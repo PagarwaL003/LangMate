@@ -1,4 +1,4 @@
-import useAuthUser from "../hooks/useauthUser";
+import useAuthUser from "../hooks/useAuthUser";
 import { Link, useLocation } from "react-router";
 import { BellIcon, Globe, HomeIcon, ShipWheelIcon, UserIcon } from "lucide-react";
 

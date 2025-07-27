@@ -1,9 +1,8 @@
-
-
-<p align="center">
-  <img src="frontend/chatapp/public/globe.svg" alt="LangMate Globe Logo" width="48" style="vertical-align:middle; margin-right:8px;"/>
-  <span style="font-size:2.2em; font-weight:bold; vertical-align:middle;">LangMate</span>
+<p align="left">
+  <img src="frontend/chatapp/public/globe.svg" alt="LangMate Globe Logo" width="50" style="vertical-align:middle; margin-right:12px;"/>
 </p>
+
+# LangMate
 
 > **Connect. Learn. Grow.**
 

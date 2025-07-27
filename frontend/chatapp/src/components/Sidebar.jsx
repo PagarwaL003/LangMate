@@ -1,9 +1,9 @@
-import useauthUser from "../hooks/useauthUser";
+import useAuthUser from "../hooks/useauthUser";
 import { Link, useLocation } from "react-router";
 import { BellIcon, Globe, HomeIcon, ShipWheelIcon, UserIcon } from "lucide-react";
 
 const Sidebar = () => {
-  const { authUser } = useauthUser();
+  const { authUser } = useAuthUser();
   const location = useLocation();
   const currentPath = location.pathname;
 

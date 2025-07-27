@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router";
-import useauthUser from "../hooks/useauthUser";
+import useAuthUser from "../hooks/useauthUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { logout } from "../lib/api";
 import { BellIcon, Globe, LogOutIcon, ShipWheelIcon } from "lucide-react";
 import ThemeSelector from "./ThemeSelector.jsx";
 
 const Navbar = () => {
-  const { authUser } = useauthUser();
+  const { authUser } = useAuthUser();
   const location = useLocation();
   const isChatPage = location.pathname?.startsWith("/chat");
 

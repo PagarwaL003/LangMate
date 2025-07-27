@@ -13,10 +13,10 @@ import Layout from "./components/Layout.jsx";
 import { Toaster } from "react-hot-toast";
 import { useThemeStore } from "./store/useThemeStore.js";
 
-import useauthUser from "./hooks/useAuthUser.js";
+import useAuthUser from "./hooks/useAuthUser.js";
 
 const App = () => {
-  const { isLoading, authUser } = useauthUser();
+  const { isLoading, authUser } = useAuthUser();
 
   const { theme } = useThemeStore();
 

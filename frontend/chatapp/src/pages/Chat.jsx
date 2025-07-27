@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import useauthUser from "../hooks/useAuthUser";
+import useAuthUser from "../hooks/useAuthUser";
 import { useQuery } from "@tanstack/react-query";
 import { getStreamToken } from "../lib/api";
 import {
@@ -26,7 +26,7 @@ const Chatting = () => {
   const [channel, setChannel] = useState(null);
   const [loading, setLoding] = useState(null);
 
-  const { authUser } = useauthUser();
+  const { authUser } = useAuthUser();
   const { data:tokenData } = useQuery({
     queryKey: ["streamToken"],
     queryFn: getStreamToken,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useauthUser from "../hooks/useauthUser";
+import useAuthUser from "../hooks/useauthUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { LANGUAGES } from "../constants/index.js";
@@ -14,7 +14,7 @@ import {
 import { completeOnboarding } from "../lib/api";
 
 const Onboarding = () => {
-  const { authUser } = useauthUser();
+  const { authUser } = useAuthUser();
   const queryClient = useQueryClient();
   const [formState, setFormState] = useState({
     fullName: authUser?.fullName || "",

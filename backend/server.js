@@ -28,14 +28,12 @@ app.get("/", (req, res) => {
   console.log("Hello World");
 });
 
+connectDB();
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-    connectDB();
   });
-} else {
-  connectDB();
 }
 
-export default app;
+module.exports = app;

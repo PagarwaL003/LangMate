@@ -9,7 +9,11 @@ import chatRoutes from "./routes/chatRoutes.js";
 import { connectDB } from "./config/db.js";
 
 const app = express();
-const allowedOrigin = process.env.FRONTEND_URL || "http://localhost:5173";
+const allowedOrigin = [
+  process.env.FRONTEND_URL,
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
 
 app.use(
   cors({

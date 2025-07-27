@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { logout } from "../lib/api";
 import { BellIcon, Globe, LogOutIcon, ShipWheelIcon } from "lucide-react";
 import ThemeSelector from "./ThemeSelector.jsx";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { authUser } = useAuthUser();
